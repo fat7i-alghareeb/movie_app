@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
 import 'utils/router/app_router.dart';
 import 'utils/themes.dart';
@@ -39,14 +40,19 @@ class _MyAppState extends State<MyApp> {
     //   ),
     // );
 
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Store',
-      initialRoute: KRouter.homeScreen,
-      onGenerateRoute: _appRouter.generateRoute,
-      theme: lightMode,
-      darkTheme: darkMode,
-      themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Store',
+        initialRoute: KRouter.homeScreen,
+        onGenerateRoute: _appRouter.generateRoute,
+        theme: lightMode,
+        darkTheme: darkMode,
+        themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+      ),
     );
   }
 }
