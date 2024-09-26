@@ -8,3 +8,7 @@ SizedBox verticalSpace(double height) => SizedBox(
 SizedBox horizontalSpace(double width) => SizedBox(
       width: width.w,
     );
+
+SliverToBoxAdapter sliverVerticalSpace(double height) => SliverToBoxAdapter(
+      child: verticalSpace(height),
+    );

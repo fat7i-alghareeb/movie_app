@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
 import 'utils/router/app_router.dart';
@@ -32,13 +33,13 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // SystemChrome.setSystemUIOverlayStyle(
-    //   SystemUiOverlayStyle(
-    //     statusBarColor: Colors.transparent,
-    //     systemNavigationBarColor:
-    //         isDarkTheme ? const Color(0xFF1D182A) : const Color(0xffffffff),
-    //   ),
-    // );
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        systemNavigationBarColor:
+            isDarkTheme ? const Color(0xFF1D182A) : const Color(0xffffffff),
+      ),
+    );
 
     return ScreenUtilInit(
       designSize: const Size(360, 690),
