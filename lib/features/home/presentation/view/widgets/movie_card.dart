@@ -38,9 +38,12 @@ class MovieCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Flexible(
-                    child: Hero(
-                      tag: movie.id,
-                      child: CustomImage(image: movie.poster),
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 5),
+                      child: Hero(
+                        tag: movie.id,
+                        child: CustomImage(image: movie.poster),
+                      ),
                     ),
                   ),
                   Column(

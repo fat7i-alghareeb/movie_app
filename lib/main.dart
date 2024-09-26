@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
   late bool isDarkTheme;
   void _setInitialValues() {
-    isDarkTheme = false;
+    isDarkTheme = true;
   }
 
   @override
@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Store',
+        title: 'CineVerse',
         initialRoute: KRouter.homeScreen,
         onGenerateRoute: _appRouter.generateRoute,
         theme: lightMode,
