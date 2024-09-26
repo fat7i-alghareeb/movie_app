@@ -13,7 +13,7 @@ const darkNeutralColor = Color(0xFF342F3F);
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(
   brightness: Brightness.light,
-  // fontFamily: "oswald",
+  fontFamily: "oswald",
   primaryColor: lightMainColor,
   textSelectionTheme: TextSelectionThemeData(
     cursorColor: accentColor,
@@ -35,7 +35,7 @@ ThemeData lightMode = ThemeData(
 ///////////////////////////////////////////////////////////////
 ThemeData darkMode = ThemeData(
   brightness: Brightness.dark,
-  //fontFamily: "oswald",
+  fontFamily: "oswald",
   drawerTheme: const DrawerThemeData(backgroundColor: darkMainColor),
   appBarTheme: const AppBarTheme(
     backgroundColor: darkMainColor,
