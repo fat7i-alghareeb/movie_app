@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../../../../utils/extensions.dart';
 
 class CustomChip extends StatelessWidget {
   const CustomChip({

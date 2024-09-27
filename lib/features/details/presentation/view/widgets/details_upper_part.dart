@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../../../../utils/extensions.dart';
 
 import '../../../../../shared/widgets/custom_image.dart';
 import '../../../../../utils/spacing.dart';

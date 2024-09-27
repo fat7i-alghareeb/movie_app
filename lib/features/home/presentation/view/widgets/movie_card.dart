@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
-import 'package:movie_app/shared/widgets/custom_image.dart';
+import '../../../data/domain/entities/movie_entity.dart';
+import '../../../../../shared/widgets/custom_image.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/utils/extensions.dart';
-import 'package:movie_app/utils/spacing.dart';
+import '../../../../../utils/extensions.dart';
+import '../../../../../utils/spacing.dart';
 import '../../../../../constants.dart';
 
 class MovieCard extends StatelessWidget {

@@ -1,12 +1,11 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
-import 'package:movie_app/features/home/presentation/manger/cubit/home_cubit.dart';
-import 'package:movie_app/features/home/presentation/view/home_screen.dart';
-import 'package:movie_app/features/home/presentation/view/shimmer.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../../../../constants.dart';
+import '../../../data/domain/entities/movie_entity.dart';
+import '../../manger/cubit/home_cubit.dart';
+import '../shimmer.dart';
+import '../../../../../utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../shared/widgets/custom_image.dart';
 
@@ -37,7 +36,7 @@ class SwiperWidget extends StatelessWidget {
             isLoading = true;
 
             await context
-                .read<HomeCubit>()
+                .read<SearchCubit>()
                 .fetchSearchedMovies(
                   pageNumber: ++Constants.famousMoviePageNumber,
                   searchText: "star wars",

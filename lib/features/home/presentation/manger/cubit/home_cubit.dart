@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/data/domain/repo/search_repo.dart';
+import '../../../data/domain/repo/search_repo.dart';
 
 import 'home_state.dart';
 
-class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.searchRepo) : super(HomeInitial());
+class SearchCubit extends Cubit<SearchState> {
+  SearchCubit(this.searchRepo) : super(SearchInitial());
   final SearchRepo searchRepo;
 
   Future<void> fetchSearchedMovies(
       {required String searchText, int pageNumber = 1}) async {
-    pageNumber == 1 ? emit(HomeLoading()) : emit(HomePaginationLoading());
+    pageNumber == 1 ? emit(SearchLoading()) : emit(SearchPaginationLoading());
 
     var result = await searchRepo.fetchSearchedMovies(
       searchQuery: searchText,
@@ -18,12 +18,12 @@ class HomeCubit extends Cubit<HomeState> {
     result.fold(
       (failure) {
         pageNumber == 1
-            ? emit(HomeFailure(message: failure.message))
-            : emit(HomePaginationFailure(message: failure.message));
+            ? emit(SearchFailure(message: failure.message))
+            : emit(SearchPaginationFailure(message: failure.message));
       },
       (searchResponse) {
         emit(
-          HomeSuccess(searchResponse: searchResponse),
+          SearchSuccess(searchResponse: searchResponse),
         );
       },
     );

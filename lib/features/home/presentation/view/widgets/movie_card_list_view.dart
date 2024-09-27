@@ -1,7 +1,7 @@
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
+import '../../../data/domain/entities/movie_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/home/presentation/view/widgets/movie_card.dart';
-import 'package:movie_app/utils/extensions.dart';
+import 'movie_card.dart';
+import '../../../../../utils/extensions.dart';
 
 class MoviesCardListView extends StatefulWidget {
   const MoviesCardListView({

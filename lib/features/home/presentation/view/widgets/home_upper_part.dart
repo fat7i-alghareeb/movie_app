@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/utils/extensions.dart';
-import 'package:movie_app/utils/spacing.dart';
+import '../../../../../utils/extensions.dart';
+import '../../../../../utils/spacing.dart';
 import '../../../../../../shared/widgets/app_icon.dart';
 
 class HomeUpperPart extends StatelessWidget {

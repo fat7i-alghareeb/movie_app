@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movie_app/features/home/data/models/movie_model.dart';
+import 'movie_model.dart';
 
 part 'search_response.g.dart';
 

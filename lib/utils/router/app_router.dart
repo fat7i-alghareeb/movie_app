@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/features/details/presentation/view/details_screen.dart';
-import 'package:movie_app/features/favorite/presentation/view/favorite_screen.dart';
-import 'package:movie_app/features/home/presentation/view/home_screen.dart';
-import 'package:movie_app/features/search/presentation/view/search_screen.dart';
+import '../../features/details/presentation/view/details_screen.dart';
+import '../../features/favorite/presentation/view/favorite_screen.dart';
+import '../../features/home/presentation/view/home_screen.dart';
+import '../../features/search/presentation/view/search_screen.dart';
 
 import 'router_paths.dart';
 

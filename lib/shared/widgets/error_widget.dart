@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../utils/extensions.dart';
 
 class OnFetchErrorWidget extends StatelessWidget {
   const OnFetchErrorWidget({

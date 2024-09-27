@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
-import 'package:movie_app/features/home/data/domain/repo/search_repo.dart';
-import 'package:movie_app/features/home/presentation/manger/cubit/home_cubit.dart';
-import 'package:movie_app/features/home/presentation/manger/cubit/home_state.dart';
-import 'package:movie_app/features/home/presentation/view/widgets/swiper_widget.dart';
-import 'package:movie_app/utils/functions/setup_service_locator.dart';
-import 'package:movie_app/utils/functions/show_toast.dart';
-import 'package:movie_app/utils/spacing.dart';
+import '../../../../constants.dart';
+import '../../data/domain/entities/movie_entity.dart';
+import '../../data/domain/repo/search_repo.dart';
+import '../manger/cubit/home_cubit.dart';
+import '../manger/cubit/home_state.dart';
+import 'widgets/swiper_widget.dart';
+import '../../../../utils/functions/setup_service_locator.dart';
+import '../../../../utils/functions/show_toast.dart';
+import '../../../../utils/spacing.dart';
 import '../../../../shared/widgets/sector_title.dart';
 import '../../../../shared/widgets/error_widget.dart';
 import 'widgets/home_upper_part.dart';
@@ -46,7 +46,7 @@ class HomeBody extends StatelessWidget {
         sliverVerticalSpace(20),
         SliverToBoxAdapter(
           child: BlocProvider(
-            create: (context) => HomeCubit(getIt.get<SearchRepo>())
+            create: (context) => SearchCubit(getIt.get<SearchRepo>())
               ..fetchSearchedMovies(searchText: 'star wars'),
             child: const NewestMovieWidget(),
           ),
@@ -83,24 +83,24 @@ class _NewestMovieWidgetState extends State<NewestMovieWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<HomeCubit, HomeState>(
+    return BlocConsumer<SearchCubit, SearchState>(
       listener: (context, state) {
-        if (state is HomeSuccess) {
+        if (state is SearchSuccess) {
           movies.addAll(state.searchResponse.movies);
         }
 
-        if (state is HomePaginationFailure) {
+        if (state is SearchPaginationFailure) {
           showToast(message: state.message, color: Colors.red[700]);
         }
       },
       builder: (context, state) {
-        if (state is HomeSuccess ||
-            state is HomePaginationLoading ||
-            state is HomePaginationFailure) {
+        if (state is SearchSuccess ||
+            state is SearchPaginationLoading ||
+            state is SearchPaginationFailure) {
           return SwiperWidget(
             movies: movies,
           );
-        } else if (state is HomeFailure) {
+        } else if (state is SearchFailure) {
           return OnFetchErrorWidget(
             errorMessage: state.message,
             onRetry: () {},

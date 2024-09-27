@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/utils/spacing.dart';
+import '../../../../utils/spacing.dart';
 import 'widgets/search_upper_part.dart';
 
 class SearchScreen extends StatelessWidget {

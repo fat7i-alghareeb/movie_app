@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:movie_app/features/home/data/domain/repo/search_repo.dart';
+import '../../features/home/data/domain/repo/search_repo.dart';
 
 import '../services/movie_service.dart';
 

@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
+import '../../../../constants.dart';
+import '../domain/entities/movie_details_entity.dart';
 
 import 'rating.dart';
 part 'movie_details_model.g.dart';

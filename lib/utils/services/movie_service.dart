@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:movie_app/features/home/data/models/search_response.dart';
+import '../../features/home/data/models/search_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../constants.dart';

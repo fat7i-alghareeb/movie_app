@@ -1,27 +1,27 @@
 import '../../../../home/data/models/search_response.dart';
 
-abstract class HomeState {}
+abstract class SearchState {}
 
-final class HomeInitial extends HomeState {}
+final class SearchInitial extends SearchState {}
 
-final class HomeSuccess extends HomeState {
+final class SearchSuccess extends SearchState {
   final SearchResponse searchResponse;
 
-  HomeSuccess({required this.searchResponse});
+  SearchSuccess({required this.searchResponse});
 }
 
-final class HomeFailure extends HomeState {
+final class SearchFailure extends SearchState {
   final String message;
 
-  HomeFailure({required this.message});
+  SearchFailure({required this.message});
 }
 
-final class HomePaginationFailure extends HomeState {
+final class SearchPaginationFailure extends SearchState {
   final String message;
 
-  HomePaginationFailure({required this.message});
+  SearchPaginationFailure({required this.message});
 }
 
-final class HomeLoading extends HomeState {}
+final class SearchLoading extends SearchState {}
 
-final class HomePaginationLoading extends HomeState {}
+final class SearchPaginationLoading extends SearchState {}

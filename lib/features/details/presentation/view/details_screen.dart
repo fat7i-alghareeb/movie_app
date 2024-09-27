@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../../../constants.dart';
+import '../../../../utils/extensions.dart';
 import 'widgets/add_to_favorite_button.dart';
 import 'widgets/details_body.dart';
 
