@@ -5,10 +5,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
+import 'utils/functions/setup_service_locator.dart';
 import 'utils/router/app_router.dart';
 import 'utils/themes.dart';
 
 void main() async {
+  setupServiceLocator();
+
   runApp(
     const MyApp(),
   );
@@ -25,7 +28,7 @@ class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
   late bool isDarkTheme;
   void _setInitialValues() {
-    isDarkTheme = true;
+    isDarkTheme = false;
   }
 
   @override
