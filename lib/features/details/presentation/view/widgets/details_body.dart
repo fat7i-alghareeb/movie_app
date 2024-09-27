@@ -21,7 +21,10 @@ class DetailsBody extends StatelessWidget {
         sliverVerticalSpace(30),
         DetailsUpperPart(movie: movie),
         sliverVerticalSpace(30),
-        const SectorTitle(boldText: "Plot ", normalText: "summary"),
+        const SectorTitle(
+          boldText: "Plot ",
+          normalText: "summary",
+        ),
         sliverVerticalSpace(10),
         SliverToBoxAdapter(
           child: Text(

@@ -53,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'CineVerse',
-        initialRoute: KRouter.detailsScreen,
+        initialRoute: KRouter.homeScreen,
         onGenerateRoute: _appRouter.generateRoute,
         theme: lightMode,
         darkTheme: darkMode,

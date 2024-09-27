@@ -33,19 +33,15 @@ class MovieCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Flexible(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 5),
-                      child: Hero(
-                        tag: movie.id,
-                        child: CustomImage(image: movie.poster),
-                      ),
-                    ),
+                    child: CustomImage(image: movie.poster),
                   ),
+                  horizontalSpace(10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -70,6 +66,7 @@ class MovieCard extends StatelessWidget {
                       ),
                     ],
                   ),
+                  horizontalSpace(10),
                 ],
               ),
             ),

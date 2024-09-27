@@ -36,7 +36,7 @@ class HomeUpperPart extends StatelessWidget {
                   },
                   widget: Icon(
                     Icons.menu,
-                    size: context.heightPercentage(6.09) / 2,
+                    size: 20.dg,
                     color: context.onPrimaryColor().withOpacity(0.5),
                   ),
                 )

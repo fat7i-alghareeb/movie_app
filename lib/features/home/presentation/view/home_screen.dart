@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/constants.dart';
 import 'package:movie_app/features/home/presentation/view/widgets/swiper_widget.dart';
-import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/spacing.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../shared/widgets/sector_title.dart';
 import 'widgets/home_upper_part.dart';
 import 'widgets/movie_card_list_view.dart';
@@ -35,6 +33,7 @@ class HomeBody extends StatelessWidget {
         const SectorTitle(
           boldText: "Now ",
           normalText: "showing",
+          padding: true,
         ),
         sliverVerticalSpace(20),
         SliverToBoxAdapter(
@@ -46,6 +45,7 @@ class HomeBody extends StatelessWidget {
         const SectorTitle(
           boldText: "Recent ",
           normalText: "viewed",
+          padding: true,
         ),
         sliverVerticalSpace(20),
         SliverToBoxAdapter(

@@ -47,7 +47,7 @@ class _MoviesCardListViewState extends State<MoviesCardListView> {
 
   @override
   Widget build(BuildContext context) {
-    final double height = context.heightPercentage(24);
+    final double height = context.heightPercentage(30);
     return SizedBox(
       height: height,
       child: ListView.builder(

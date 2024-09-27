@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/utils/extensions.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppIcon extends StatelessWidget {
   const AppIcon({
@@ -14,8 +15,8 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: context.heightPercentage(6.09),
-      width: context.heightPercentage(6.09),
+      height: 40.dg,
+      width: 40.dg,
       child: GestureDetector(
         onTap: onPressed,
         child: Card(
