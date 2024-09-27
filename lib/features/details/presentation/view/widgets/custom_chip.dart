@@ -6,14 +6,15 @@ class CustomChip extends StatelessWidget {
   const CustomChip({
     super.key,
     required this.label,
+    this.color,
   });
 
   final String label;
-
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return Chip(
-      backgroundColor: context.accentColor().withOpacity(.5),
+      backgroundColor: color ?? context.accentColor().withOpacity(.5),
       side: const BorderSide(
         color: Colors.transparent,
       ),
