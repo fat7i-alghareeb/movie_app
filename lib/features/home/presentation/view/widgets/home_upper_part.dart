@@ -30,20 +30,14 @@ class HomeUpperPart extends StatelessWidget {
                     color: context.accentColor(),
                   ),
                 ),
-                SizedBox(
-                  height: context.heightPercentage(6.09),
-                  width: context.heightPercentage(6.09),
-                  child: AppIcon(
-                    onPressed: () {
-                      // Scaffold.of(context).openEndDrawer();
-                    },
-                    widget: Center(
-                      child: Icon(
-                        Icons.menu,
-                        size: context.heightPercentage(6.09) / 2,
-                        color: context.onPrimaryColor().withOpacity(0.5),
-                      ),
-                    ),
+                AppIcon(
+                  onPressed: () {
+                    // Scaffold.of(context).openEndDrawer();
+                  },
+                  widget: Icon(
+                    Icons.menu,
+                    size: context.heightPercentage(6.09) / 2,
+                    color: context.onPrimaryColor().withOpacity(0.5),
                   ),
                 )
               ],

@@ -13,14 +13,18 @@ class AppIcon extends StatelessWidget {
   final Color? color;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onPressed,
-      child: Card(
-        shape: const CircleBorder(),
-        color: color ?? context.neutralColor(),
-        elevation: 0,
-        child: Center(
-          child: widget,
+    return SizedBox(
+      height: context.heightPercentage(6.09),
+      width: context.heightPercentage(6.09),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Card(
+          shape: const CircleBorder(),
+          color: color ?? context.neutralColor(),
+          elevation: 0,
+          child: Center(
+            child: widget,
+          ),
         ),
       ),
     );

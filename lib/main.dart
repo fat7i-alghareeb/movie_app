@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
 import 'utils/router/app_router.dart';
 import 'utils/themes.dart';
@@ -33,6 +36,8 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    log(context.screenHeight.toString());
+    log(context.screenWidth.toString());
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -48,7 +53,7 @@ class _MyAppState extends State<MyApp> {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'CineVerse',
-        initialRoute: KRouter.homeScreen,
+        initialRoute: KRouter.detailsScreen,
         onGenerateRoute: _appRouter.generateRoute,
         theme: lightMode,
         darkTheme: darkMode,

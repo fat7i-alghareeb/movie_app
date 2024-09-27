@@ -4,6 +4,11 @@ class MovieEntity {
   final String year;
   final String id;
   final String type;
-  MovieEntity(this.id, this.type,
-      {required this.poster, required this.title, required this.year});
+  MovieEntity({
+    required this.poster,
+    required this.title,
+    required this.year,
+    required this.id,
+    required this.type,
+  });
 }
