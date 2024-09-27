@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/shared/widgets/custom_image.dart';
-import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/spacing.dart';
-
 import 'widgets/search_upper_part.dart';
 
 class SearchScreen extends StatelessWidget {
