@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/dashboards/data/domain/entities/movie_entity.dart';
 import 'shared/cubit/connectivity cubit/connectivity_cubit.dart';
 import 'shared/cubit/cubit/user_info_cubit.dart';
 import 'shared/cubit/cubit/user_info_state.dart';

@@ -1,7 +1,7 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
 
-import '../../features/home/data/domain/entities/movie_entity.dart';
+import '../../features/dashboards/data/domain/entities/movie_entity.dart';
 
 Future<void> saveMovieData(MovieEntity movie, String boxName) async {
   var box = Hive.box<MovieEntity>(boxName);
