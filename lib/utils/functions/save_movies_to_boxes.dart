@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/constants.dart';
+import '../../constants.dart';
 
 import '../../features/dashboards/data/domain/entities/movie_entity.dart';
 

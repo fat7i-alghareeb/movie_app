@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../utils/extensions.dart';
 
 import 'app_icon.dart';
 

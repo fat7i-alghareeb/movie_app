@@ -1,5 +1,5 @@
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
+import '../../../../details/data/domain/entities/movie_details_entity.dart';
 part "movie_entity.g.dart";
 
 @HiveType(typeId: 0)

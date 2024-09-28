@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/dashboards/presentation/manger/cubit/search_cubit.dart';
+import '../../manger/search%20cubit/search_cubit.dart';
 import '../../../../../constants.dart';
 import '../../../../../utils/extensions.dart';
 

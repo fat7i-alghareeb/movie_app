@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/constants.dart';
+import '../../../constants.dart';
 import '../../entities/user_entity.dart';
 import 'user_info_state.dart';
 

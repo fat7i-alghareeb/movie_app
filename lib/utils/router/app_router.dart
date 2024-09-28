@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_cubit.dart';
-import 'package:movie_app/utils/functions/setup_service_locator.dart';
+import '../../features/details/presentation/manger/details%20book%20cubit/cubit/details_cubit.dart';
+import '../functions/setup_service_locator.dart';
 import '../../features/details/data/repo/details_repo.dart';
 import '../../features/details/presentation/view/details_screen.dart';
 

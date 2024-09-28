@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
-import 'package:movie_app/features/details/data/repo/details_repo.dart';
+import '../../features/details/data/repo/details_repo.dart';
 
 import '../../features/dashboards/data/domain/repo/search_repo.dart';
 import '../../features/dashboards/presentation/manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';

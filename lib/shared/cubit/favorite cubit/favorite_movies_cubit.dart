@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
+import '../../../features/details/data/domain/entities/movie_details_entity.dart';
 import '../../../constants.dart';
 import '../../../features/dashboards/data/domain/entities/movie_entity.dart';
 import '../../../utils/functions/save_movies_to_boxes.dart';

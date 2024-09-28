@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/dashboards/data/domain/entities/movie_entity.dart';
+import '../../../../../constants.dart';
+import '../../../data/domain/entities/movie_entity.dart';
 import '../../../data/domain/repo/search_repo.dart';
 
 import 'search_state.dart';

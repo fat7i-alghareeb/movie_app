@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/utils/extensions.dart';
+import '../../../../../utils/extensions.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({

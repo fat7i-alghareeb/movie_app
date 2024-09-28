@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
+import '../domain/entities/movie_details_entity.dart';
 
 import '../../../../utils/errors/failure.dart';
 import '../../../../utils/services/movie_service.dart';

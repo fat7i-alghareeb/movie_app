@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:movie_app/utils/functions/convert_string_to_list.dart';
+import '../../../../utils/functions/convert_string_to_list.dart';
 import '../../../../constants.dart';
 import '../domain/entities/movie_details_entity.dart';
 
