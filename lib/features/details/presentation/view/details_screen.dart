@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_cubit.dart';
-import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_state.dart';
-import 'package:movie_app/shared/widgets/error_widget.dart';
+import 'package:movie_app/utils/extensions.dart';
+
 import '../../../../shared/cubit/favorite_movies_cubit.dart';
-import '../../../../utils/extensions.dart';
+import '../../../../shared/widgets/error_widget.dart';
+import '../manger/details book cubit/cubit/details_cubit.dart';
+import '../manger/details book cubit/cubit/details_state.dart';
 import 'widgets/add_to_favorite_button.dart';
 import 'widgets/details_body.dart';
 
