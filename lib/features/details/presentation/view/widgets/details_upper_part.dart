@@ -17,23 +17,21 @@ class DetailsUpperPart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Column(
-        children: [
-          const CustomAppBar(
-            title: 'Detail Movie',
+    return Column(
+      children: [
+        const CustomAppBar(
+          title: 'Detail Movie',
+        ),
+        verticalSpace(20),
+        SizedBox(
+          height: context.heightPercentage(43),
+          child: CustomImage(
+            image: movie.poster,
           ),
-          verticalSpace(20),
-          SizedBox(
-            height: context.heightPercentage(43),
-            child: CustomImage(
-              image: movie.poster,
-            ),
-          ),
-          verticalSpace(25),
-          MainDetails(movie: movie)
-        ],
-      ),
+        ),
+        verticalSpace(25),
+        MainDetails(movie: movie)
+      ],
     );
   }
 }

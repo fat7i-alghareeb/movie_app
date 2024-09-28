@@ -1,5 +1,4 @@
 import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
 import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
-import 'shared/cubit/cubit/connectivity_cubit.dart';
-import 'shared/widgets/connectivity_bar.dart';
+import 'shared/cubit/connectivity cubit/connectivity_cubit.dart';
+import 'shared/cubit/cubit/user_info_cubit.dart';
+import 'shared/cubit/cubit/user_info_state.dart';
+import 'shared/entities/user_entity.dart';
 import 'utils/extensions.dart';
 import 'utils/router/router_paths.dart';
 import 'utils/functions/setup_service_locator.dart';
@@ -18,13 +19,23 @@ import 'utils/themes.dart';
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(MovieEntityAdapter());
+  Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<MovieEntity>(Constants.kRecentViewedBox);
   await Hive.openBox<MovieEntity>(Constants.kFavoriteBox);
+  await Hive.openBox<UserEntity>(Constants.kUserBox);
+
   setupServiceLocator();
 
   runApp(
-    BlocProvider(
-      create: (context) => ConnectivityCubit()..checkInitialConnectivity(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => ConnectivityCubit()..checkInitialConnectivity(),
+        ),
+        BlocProvider(
+          create: (context) => UserInfoCubit()..saveUser(),
+        ),
+      ],
       child: const MyApp(),
     ),
   );
@@ -41,7 +52,7 @@ class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
   late bool isDarkTheme;
   void _setInitialValues() {
-    isDarkTheme = false;
+    isDarkTheme = context.read<UserInfoCubit>().isDarkTheme;
   }
 
   @override
@@ -66,14 +77,22 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'CineVerse',
-        initialRoute: KRouter.homeScreen,
-        onGenerateRoute: _appRouter.generateRoute,
-        theme: lightMode,
-        darkTheme: darkMode,
-        themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+      child: BlocListener<UserInfoCubit, UserInfoState>(
+        listener: (context, state) {
+          if (state is EditThemeUserInfo) {
+            isDarkTheme = context.read<UserInfoCubit>().isDarkTheme;
+            setState(() {});
+          }
+        },
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'CineVerse',
+          initialRoute: KRouter.homeScreen,
+          onGenerateRoute: _appRouter.generateRoute,
+          theme: lightMode,
+          darkTheme: darkMode,
+          themeMode: isDarkTheme ? ThemeMode.dark : ThemeMode.light,
+        ),
       ),
     );
   }

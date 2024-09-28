@@ -9,4 +9,5 @@ class Constants {
   static int searchedMoviesPageNumber = 1;
   static String kRecentViewedBox = "kRecentViewedBox";
   static String kFavoriteBox = "kFavoriteBox";
+  static String kUserBox = "user_box";
 }

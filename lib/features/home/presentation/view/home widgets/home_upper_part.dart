@@ -33,7 +33,8 @@ class HomeUpperPart extends StatelessWidget {
                 ),
                 AppIcon(
                   onPressed: () {
-                    // Scaffold.of(context).openEndDrawer();
+                    Scaffold.of(context).openEndDrawer();
+                    HapticFeedback.heavyImpact();
                   },
                   widget: Icon(
                     Icons.menu,

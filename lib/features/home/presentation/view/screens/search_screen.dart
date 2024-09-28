@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
-import '../../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../../shared/cubit/connectivity cubit/connectivity_cubit.dart';
 import '../../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../../utils/spacing.dart';
 

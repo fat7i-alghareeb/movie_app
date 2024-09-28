@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/extensions.dart';
-import '../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../shared/cubit/connectivity cubit/connectivity_cubit.dart';
 import '../../../../shared/cubit/favorite cubit/favorite_movies_cubit.dart';
 import '../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../shared/widgets/error_widget.dart';
@@ -59,7 +59,7 @@ class _DetailsStatesState extends State<DetailsStates>
   void initAnimations() {
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 800),
+      duration: const Duration(milliseconds: 1200),
     );
     _animation = CurvedAnimation(
       parent: _controller,
@@ -93,6 +93,7 @@ class _DetailsStatesState extends State<DetailsStates>
                 padding: EdgeInsets.symmetric(horizontal: 20.w),
                 child: DetailsBody(
                   movie: state.movieDetailsEntity,
+                  animation: _animation,
                 ),
               ),
               const Gradient(),
@@ -100,8 +101,14 @@ class _DetailsStatesState extends State<DetailsStates>
                 padding: EdgeInsets.symmetric(horizontal: 65.w, vertical: 20.h),
                 child: BlocProvider(
                   create: (context) => FavoriteMoviesCubit(),
-                  child: AddToFavoriteButton(
-                    movie: state.movieDetailsEntity,
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(2, 0),
+                      end: Offset.zero,
+                    ).animate(_animation),
+                    child: AddToFavoriteButton(
+                      movie: state.movieDetailsEntity,
+                    ),
                   ),
                 ),
               )

@@ -17,46 +17,44 @@ class StaffWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Card(
-        margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Constants.borderRadius),
-        ),
-        color: context.neutralColor(),
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Director",
-                style: TextStyle(
-                  fontSize: 20.sp,
-                ),
+    return Card(
+      margin: EdgeInsets.zero,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(Constants.borderRadius),
+      ),
+      color: context.neutralColor(),
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Director",
+              style: TextStyle(
+                fontSize: 20.sp,
               ),
-              verticalSpace(10),
-              CustomChip(label: movie.director),
-              verticalSpace(20),
-              Text(
-                "Cast",
-                style: TextStyle(
-                  fontSize: 20.sp,
-                ),
+            ),
+            verticalSpace(10),
+            CustomChip(label: movie.director),
+            verticalSpace(20),
+            Text(
+              "Cast",
+              style: TextStyle(
+                fontSize: 20.sp,
               ),
-              verticalSpace(10),
-              Wrap(
-                spacing: 20,
-                runSpacing: 20,
-                children: movie.actors
-                    .map(
-                      (actor) => CustomChip(label: actor),
-                    )
-                    .toList(),
-              ),
-              verticalSpace(10),
-            ],
-          ),
+            ),
+            verticalSpace(10),
+            Wrap(
+              spacing: 20,
+              runSpacing: 20,
+              children: movie.actors
+                  .map(
+                    (actor) => CustomChip(label: actor),
+                  )
+                  .toList(),
+            ),
+            verticalSpace(10),
+          ],
         ),
       ),
     );

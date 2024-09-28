@@ -55,7 +55,7 @@ class _AddToFavoriteButtonState extends State<AddToFavoriteButton> {
             duration: const Duration(milliseconds: 400),
             height: context.heightPercentage(7),
             decoration: BoxDecoration(
-              color: isExisting ? Colors.red[700] : context.accentColor(),
+              color: isExisting ? Colors.red[800] : context.accentColor(),
               borderRadius: BorderRadius.circular(Constants.borderRadius),
             ),
             child: Center(

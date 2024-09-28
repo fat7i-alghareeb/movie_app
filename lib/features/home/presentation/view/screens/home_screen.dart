@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/shared/cubit/cubit/connectivity_cubit.dart';
+import 'package:movie_app/shared/cubit/connectivity%20cubit/connectivity_cubit.dart';
 import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
 import '../../../../../shared/widgets/connectivity_bar.dart';
@@ -11,6 +11,7 @@ import '../../manger/cubit/search_cubit.dart';
 import '../../manger/cubit/search_state.dart';
 import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
 import '../../manger/recent_viewed_books_cubit/recent_viewed_movies_state.dart';
+import '../home widgets/drawer_widget.dart';
 import '../home widgets/swiper_widget.dart';
 import '../../../../../utils/functions/setup_service_locator.dart';
 import '../../../../../utils/functions/show_toast.dart';
@@ -26,6 +27,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: const DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: context.accentColor(),
         onPressed: () {
@@ -73,10 +75,12 @@ class HomeBody extends StatelessWidget {
       slivers: [
         const HomeUpperPart(),
         sliverVerticalSpace(30),
-        const SectorTitle(
-          boldText: "Famous ",
-          normalText: "movies",
-          padding: true,
+        const SliverToBoxAdapter(
+          child: SectorTitle(
+            boldText: "Famous ",
+            normalText: "movies",
+            padding: true,
+          ),
         ),
         sliverVerticalSpace(20),
         SliverToBoxAdapter(
@@ -84,7 +88,7 @@ class HomeBody extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => SearchCubit(getIt.get<SearchRepo>())
-                  ..fetchSearchedMovies(searchText: "lord of the rings"),
+                  ..fetchSearchedMovies(searchText: "Mission: Impossible"),
               ),
               BlocProvider(
                 create: (context) => getIt.get<RecentViewedMoviesCubit>(),
@@ -94,10 +98,12 @@ class HomeBody extends StatelessWidget {
           ),
         ),
         sliverVerticalSpace(30),
-        const SectorTitle(
-          boldText: "Recent ",
-          normalText: "viewed",
-          padding: true,
+        const SliverToBoxAdapter(
+          child: SectorTitle(
+            boldText: "Recent ",
+            normalText: "viewed",
+            padding: true,
+          ),
         ),
         sliverVerticalSpace(20),
         SliverToBoxAdapter(

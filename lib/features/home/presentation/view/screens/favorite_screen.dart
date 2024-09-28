@@ -11,7 +11,7 @@ import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
 import 'package:movie_app/utils/spacing.dart';
 
-import '../../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../../shared/cubit/connectivity cubit/connectivity_cubit.dart';
 import '../../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../../shared/widgets/custom_movie_app_bar.dart';
 import '../../../../../utils/functions/show_toast.dart';
