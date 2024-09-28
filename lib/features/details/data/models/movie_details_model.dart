@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:movie_app/utils/functions/convert_string_to_list.dart';
 import '../../../../constants.dart';
 import '../domain/entities/movie_details_entity.dart';
 
@@ -82,7 +83,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
             duration: runtime ?? "120 min",
             genre: genreField ?? "drama",
             director: directorField,
-            actors: [],
+            actors: convertStringToList(actorsField ?? ""),
             plot: plotField ?? "no plot",
             language: languageField ?? "English");
 

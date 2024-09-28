@@ -6,7 +6,7 @@ import 'package:movie_app/utils/router/router_paths.dart';
 import '../../../../../constants.dart';
 import '../../../data/domain/entities/movie_entity.dart';
 import '../../manger/cubit/search_cubit.dart';
-import '../../manger/recent_viewed_books_cubit/cubit/recent_viewed_books_cubit.dart';
+import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
 import '../../../../../shared/widgets/shimmer.dart';
 import '../../../../../utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

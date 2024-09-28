@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
-import 'features/home/data/domain/entities/movie_entity.dart';
+import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
 import 'utils/extensions.dart';
 import 'utils/router/router_paths.dart';
 import 'utils/functions/setup_service_locator.dart';

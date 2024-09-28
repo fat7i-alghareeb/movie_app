@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import '../../features/home/data/models/search_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 import '../../constants.dart';
 import '../../features/details/data/models/movie_details_model.dart';
+import '../../features/home/data/models/search_response.dart';
 
 part 'movie_service.g.dart';
 

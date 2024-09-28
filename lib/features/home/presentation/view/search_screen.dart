@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/data/domain/repo/search_repo.dart';
-import 'package:movie_app/features/home/presentation/manger/cubit/search_cubit.dart';
-import 'package:movie_app/features/home/presentation/view/search%20widgets/search_success.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
 import '../../../../utils/spacing.dart';
+
+import '../../data/domain/repo/search_repo.dart';
+import '../manger/cubit/search_cubit.dart';
+import 'search widgets/search_success.dart';
 import 'search widgets/search_upper_part.dart';
 
 class SearchScreen extends StatelessWidget {

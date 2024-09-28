@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../utils/extensions.dart';
 import '../../../../../utils/spacing.dart';
 import '../../../../../constants.dart';
-import '../../manger/recent_viewed_books_cubit/cubit/recent_viewed_books_cubit.dart';
+import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({

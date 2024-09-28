@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_cubit.dart';
 import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_state.dart';
 import 'package:movie_app/shared/widgets/error_widget.dart';
+import '../../../../shared/cubit/favorite_movies_cubit.dart';
 import '../../../../utils/extensions.dart';
 import 'widgets/add_to_favorite_button.dart';
 import 'widgets/details_body.dart';
@@ -33,7 +34,12 @@ class DetailsScreen extends StatelessWidget {
                   Padding(
                     padding:
                         EdgeInsets.symmetric(horizontal: 65.w, vertical: 20.h),
-                    child: const AddToFavoriteButton(),
+                    child: BlocProvider(
+                      create: (context) => FavoriteMoviesCubit(),
+                      child: AddToFavoriteButton(
+                        movie: state.movieDetailsEntity,
+                      ),
+                    ),
                   )
                 ],
               );

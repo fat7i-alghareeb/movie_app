@@ -1,16 +1,14 @@
-import 'dart:developer';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/features/home/presentation/manger/cubit/search_cubit.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../utils/functions/show_toast.dart';
 import '../../../data/domain/entities/movie_entity.dart';
 import 'package:flutter/material.dart';
+import '../../manger/cubit/search_cubit.dart';
 import '../../manger/cubit/search_state.dart';
-import '../../manger/recent_viewed_books_cubit/cubit/recent_viewed_books_cubit.dart';
+import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
 import '../widgets/movie_card.dart';
 import '../../../../../utils/extensions.dart';
 
@@ -38,10 +36,7 @@ class _PaginationListVerticalViewState
     var currentPositions = widget.scrollController.position.pixels;
     var maxScrollLength = widget.scrollController.position.maxScrollExtent;
     if (currentPositions >= 0.95 * maxScrollLength) {
-      log("message");
       if (!isLoading) {
-        log("what");
-
         isLoading = true;
         await context
             .read<SearchCubit>()

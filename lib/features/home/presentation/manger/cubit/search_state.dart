@@ -1,4 +1,4 @@
-import '../../../../home/data/models/search_response.dart';
+import '../../../data/models/search_response.dart';
 
 abstract class SearchState {}
 

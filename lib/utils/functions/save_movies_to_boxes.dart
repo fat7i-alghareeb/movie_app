@@ -1,26 +1,27 @@
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
 
-void saveMovieData(MovieEntity movie, String boxName) async {
+import '../../features/home/data/domain/entities/movie_entity.dart';
+
+Future<void> saveMovieData(MovieEntity movie, String boxName) async {
   var box = Hive.box<MovieEntity>(boxName);
   await box.add(movie);
 }
 
-void deleteMovieData(MovieEntity movie, String boxName) async {
+Future<void> deleteMovieData(String id, String boxName) async {
   var box = Hive.box<MovieEntity>(boxName);
   int index;
   final movies = box.values.toList();
   index = movies.indexWhere(
-    (element) => movie.id == element.id,
+    (element) => id == element.id,
   );
-  box.deleteAt(index);
+  await box.deleteAt(index);
 }
 
-bool checkExisting(MovieEntity movie, String boxName) {
+bool checkExisting(String id, String boxName) {
   var box = Hive.box<MovieEntity>(boxName);
   final isExist = box.values.toList().indexWhere(
-        (element) => movie.id == element.id,
+        (element) => id == element.id,
       );
   return isExist == -1 ? false : true;
 }

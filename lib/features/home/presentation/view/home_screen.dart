@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/features/home/presentation/manger/recent_viewed_books_cubit/cubit/recent_viewed_books_cubit.dart';
-import 'package:movie_app/features/home/presentation/manger/recent_viewed_books_cubit/cubit/recent_viewed_movies_state.dart';
+import 'package:movie_app/utils/extensions.dart';
+import 'package:movie_app/utils/router/router_paths.dart';
 import '../../data/domain/entities/movie_entity.dart';
 import '../../data/domain/repo/search_repo.dart';
 import '../manger/cubit/search_cubit.dart';
 import '../manger/cubit/search_state.dart';
+import '../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
+import '../manger/recent_viewed_books_cubit/recent_viewed_movies_state.dart';
 import 'widgets/swiper_widget.dart';
 import '../../../../utils/functions/setup_service_locator.dart';
 import '../../../../utils/functions/show_toast.dart';
@@ -20,8 +23,19 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: context.accentColor(),
+        onPressed: () {
+          context.pushNamed(KRouter.favoriteScreen);
+          HapticFeedback.heavyImpact();
+        },
+        child: Icon(
+          Icons.favorite,
+          color: context.primaryColor(),
+        ),
+      ),
+      body: const SafeArea(
         child: HomeBody(),
       ),
     );

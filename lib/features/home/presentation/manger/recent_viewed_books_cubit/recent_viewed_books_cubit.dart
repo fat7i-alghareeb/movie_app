@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
-import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
-import '../../../../../../utils/functions/save_movies_to_boxes.dart';
+import '../../../../../utils/functions/save_movies_to_boxes.dart';
+import '../../../data/domain/entities/movie_entity.dart';
 import 'recent_viewed_movies_state.dart';
 
 class RecentViewedMoviesCubit extends Cubit<RecentViewedMoviesState> {
