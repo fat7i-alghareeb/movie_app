@@ -24,7 +24,7 @@ class SwiperWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double height = context.heightPercentage(25);
-    late bool isLoading = false;
+    bool isLoading = false;
 
     return SizedBox(
       height: height.h,

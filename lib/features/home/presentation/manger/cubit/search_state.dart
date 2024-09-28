@@ -25,3 +25,7 @@ final class SearchPaginationFailure extends SearchState {
 final class SearchLoading extends SearchState {}
 
 final class SearchPaginationLoading extends SearchState {}
+
+final class SearchPaginationEnd extends SearchState {}
+
+final class SearchPaginationSuccess extends SearchState {}

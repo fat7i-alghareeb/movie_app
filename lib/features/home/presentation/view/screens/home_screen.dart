@@ -162,7 +162,7 @@ class _FamousMovieWidgetState extends State<FamousMovieWidget> {
     return BlocConsumer<SearchCubit, SearchState>(
       listener: (context, state) {
         if (state is SearchSuccess) {
-          movies.addAll(state.searchResponse.movies);
+          movies.addAll(state.searchResponse.movies ?? []);
         }
 
         if (state is SearchPaginationFailure) {

@@ -1,4 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/constants.dart';
+import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
 import '../../../data/domain/repo/search_repo.dart';
 
 import 'search_state.dart';
@@ -7,8 +11,14 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchRepo) : super(SearchInitial());
   final SearchRepo searchRepo;
   late String searchText;
+  List<MovieEntity> movies = [];
+  bool hasMoreData = true;
   Future<void> fetchSearchedMovies({required String searchText}) async {
     this.searchText = searchText;
+    movies = [];
+    hasMoreData = true;
+
+    Constants.searchedMoviesPageNumber = 1;
     emit(SearchLoading());
 
     var result = await searchRepo.fetchSearchedMovies(
@@ -20,6 +30,7 @@ class SearchCubit extends Cubit<SearchState> {
         emit(SearchFailure(message: failure.message));
       },
       (searchResponse) {
+        movies = searchResponse.movies ?? [];
         emit(
           SearchSuccess(searchResponse: searchResponse),
         );
@@ -34,14 +45,18 @@ class SearchCubit extends Cubit<SearchState> {
       searchQuery: searchText,
       pageNumber: pageNumber,
     );
+
     result.fold(
       (failure) {
+        if (failure.message == "No movies found") {
+          hasMoreData = false;
+          emit(SearchPaginationEnd());
+        }
         emit(SearchPaginationFailure(message: failure.message));
       },
       (searchResponse) {
-        emit(
-          SearchSuccess(searchResponse: searchResponse),
-        );
+        movies.addAll(searchResponse.movies ?? []);
+        emit(SearchSuccess(searchResponse: searchResponse));
       },
     );
   }

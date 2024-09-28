@@ -26,6 +26,7 @@ class PaginationListVerticalView extends StatefulWidget {
 class _PaginationListVerticalViewState
     extends State<PaginationListVerticalView> {
   bool isLoading = false;
+  bool hasMoreData = true;
   @override
   void initState() {
     super.initState();
@@ -33,6 +34,7 @@ class _PaginationListVerticalViewState
   }
 
   void _scrollListener() async {
+    if (!hasMoreData) return;
     var currentPositions = widget.scrollController.position.pixels;
     var maxScrollLength = widget.scrollController.position.maxScrollExtent;
     if (currentPositions >= 0.95 * maxScrollLength) {
@@ -49,23 +51,29 @@ class _PaginationListVerticalViewState
     }
   }
 
-  final List<MovieEntity> movies = [];
-
+  List<MovieEntity> movies = [];
+  String totalResults = "0";
   @override
   Widget build(BuildContext context) {
     final double height = context.heightPercentage(30);
     return BlocConsumer<SearchCubit, SearchState>(
       listener: (context, state) {
         if (state is SearchSuccess) {
-          movies.addAll(state.searchResponse.movies);
-        }
-
-        if (state is SearchPaginationFailure) {
+          movies = context.read<SearchCubit>().movies;
+          hasMoreData = context.read<SearchCubit>().hasMoreData;
+          totalResults = state.searchResponse.totalResults ?? "0";
+        } else if (state is SearchPaginationFailure) {
           showToast(message: state.message, color: Colors.red[700]);
+        } else if (state is SearchFailure) {
+          showToast(message: state.message, color: Colors.red[700]);
+        } else if (state is SearchPaginationEnd) {
+          hasMoreData = false;
         }
       },
       builder: (context, state) {
-        if (movies.isNotEmpty) {
+        if (state is SearchSuccess ||
+            state is SearchPaginationFailure ||
+            state is SearchPaginationLoading) {
           return ListView.builder(
             itemCount: movies.length + 1,
             controller: widget.scrollController,
@@ -80,7 +88,7 @@ class _PaginationListVerticalViewState
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "0 Results Found",
+                        "$totalResults Results Found",
                         style: TextStyle(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.bold,
@@ -119,6 +127,12 @@ class _PaginationListVerticalViewState
                 ),
               );
             },
+          );
+        } else if (state is SearchLoading) {
+          return Center(
+            child: CircularProgressIndicator(
+              color: context.accentColor(),
+            ),
           );
         } else {
           return const SizedBox.shrink();
