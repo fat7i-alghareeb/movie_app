@@ -8,9 +8,19 @@ import '../../utils/functions/save_movies_to_boxes.dart';
 part 'favorite_movies_state.dart';
 
 class FavoriteMoviesCubit extends Cubit<FavoriteMoviesState> {
-  FavoriteMoviesCubit() : super(FavoriteMoviesInitial());
+  FavoriteMoviesCubit() : super(FavoriteMoviesInitial()) {
+    _initBoxListener();
+  }
+
   List<MovieEntity> movies = [];
   var movieBox = Hive.box<MovieEntity>(Constants.kFavoriteBox);
+
+  void _initBoxListener() {
+    // Listen to any changes in the Hive box
+    movieBox.watch().listen((event) {
+      fetchFavoriteMovies();
+    });
+  }
 
   bool checkMovieExisting(String movieId) {
     return checkExisting(movieId, Constants.kFavoriteBox);
@@ -22,6 +32,8 @@ class FavoriteMoviesCubit extends Cubit<FavoriteMoviesState> {
       MovieEntity movieEntity =
           MovieEntity.fromMovieDetails(movieDetailsEntity);
       await saveMovieData(movieEntity, Constants.kFavoriteBox);
+      movies = movieBox.values.toList();
+      emit(FavoriteMoviesSuccess());
     } catch (e) {
       emit(FavoriteMoviesFailure(message: e.toString()));
     }
@@ -30,6 +42,8 @@ class FavoriteMoviesCubit extends Cubit<FavoriteMoviesState> {
   Future<void> deleteMovie({required String id}) async {
     try {
       await deleteMovieData(id, Constants.kFavoriteBox);
+      movies = movieBox.values.toList();
+      emit(FavoriteMoviesSuccess());
     } catch (e) {
       emit(FavoriteMoviesFailure(message: e.toString()));
     }

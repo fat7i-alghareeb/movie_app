@@ -4,7 +4,7 @@ import '../../../../../utils/extensions.dart';
 import '../../../../../shared/widgets/custom_image.dart';
 import '../../../../../utils/spacing.dart';
 import '../../../data/domain/entities/movie_details_entity.dart';
-import 'details_movie_app_bar.dart';
+import '../../../../../shared/widgets/custom_movie_app_bar.dart';
 import 'main_details.dart';
 
 class DetailsUpperPart extends StatelessWidget {
@@ -20,7 +20,9 @@ class DetailsUpperPart extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Column(
         children: [
-          const DetailMovieAppBar(),
+          const CustomAppBar(
+            title: 'Detail Movie',
+          ),
           verticalSpace(20),
           SizedBox(
             height: context.heightPercentage(43),

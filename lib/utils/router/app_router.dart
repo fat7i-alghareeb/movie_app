@@ -5,9 +5,9 @@ import 'package:movie_app/utils/functions/setup_service_locator.dart';
 import '../../features/details/data/repo/details_repo.dart';
 import '../../features/details/presentation/view/details_screen.dart';
 
-import '../../features/home/presentation/view/favorite_screen.dart';
-import '../../features/home/presentation/view/home_screen.dart';
-import '../../features/home/presentation/view/search_screen.dart';
+import '../../features/home/presentation/view/screens/favorite_screen.dart';
+import '../../features/home/presentation/view/screens/home_screen.dart';
+import '../../features/home/presentation/view/screens/search_screen.dart';
 import 'router_paths.dart';
 
 class AppRouter {

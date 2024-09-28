@@ -3,11 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/extensions.dart';
 
-import '../../../../../shared/widgets/app_icon.dart';
+import 'app_icon.dart';
 
-class DetailMovieAppBar extends StatelessWidget {
-  const DetailMovieAppBar({super.key});
-
+class CustomAppBar extends StatelessWidget {
+  const CustomAppBar({super.key, required this.title});
+  final String title;
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -28,7 +28,7 @@ class DetailMovieAppBar extends StatelessWidget {
         ),
         Center(
           child: Text(
-            'Detail Movie',
+            title,
             style: TextStyle(
               fontSize: 25.sp,
               fontWeight: FontWeight.bold,

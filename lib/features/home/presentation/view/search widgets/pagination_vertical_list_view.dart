@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import '../../manger/cubit/search_cubit.dart';
 import '../../manger/cubit/search_state.dart';
 import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
-import '../widgets/movie_card.dart';
+import '../home widgets/movie_card.dart';
 import '../../../../../utils/extensions.dart';
 
 class PaginationListVerticalView extends StatefulWidget {

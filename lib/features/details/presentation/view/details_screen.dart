@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/extensions.dart';
+import 'package:movie_app/utils/functions/setup_service_locator.dart';
 
 import '../../../../shared/cubit/favorite_movies_cubit.dart';
 import '../../../../shared/widgets/error_widget.dart';

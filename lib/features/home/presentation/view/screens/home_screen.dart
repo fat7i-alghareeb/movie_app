@@ -3,20 +3,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
-import '../../data/domain/entities/movie_entity.dart';
-import '../../data/domain/repo/search_repo.dart';
-import '../manger/cubit/search_cubit.dart';
-import '../manger/cubit/search_state.dart';
-import '../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
-import '../manger/recent_viewed_books_cubit/recent_viewed_movies_state.dart';
-import 'widgets/swiper_widget.dart';
-import '../../../../utils/functions/setup_service_locator.dart';
-import '../../../../utils/functions/show_toast.dart';
-import '../../../../utils/spacing.dart';
-import '../../../../shared/widgets/sector_title.dart';
-import '../../../../shared/widgets/error_widget.dart';
-import 'widgets/home_upper_part.dart';
-import 'widgets/movie_card_list_view.dart';
+import '../../../data/domain/entities/movie_entity.dart';
+import '../../../data/domain/repo/search_repo.dart';
+import '../../manger/cubit/search_cubit.dart';
+import '../../manger/cubit/search_state.dart';
+import '../../manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
+import '../../manger/recent_viewed_books_cubit/recent_viewed_movies_state.dart';
+import '../home widgets/swiper_widget.dart';
+import '../../../../../utils/functions/setup_service_locator.dart';
+import '../../../../../utils/functions/show_toast.dart';
+import '../../../../../utils/spacing.dart';
+import '../../../../../shared/widgets/sector_title.dart';
+import '../../../../../shared/widgets/error_widget.dart';
+import '../home widgets/home_upper_part.dart';
+import '../home widgets/movie_card_list_view.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -64,7 +64,7 @@ class HomeBody extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => SearchCubit(getIt.get<SearchRepo>())
-                  ..fetchSearchedMovies(searchText: "harry potter"),
+                  ..fetchSearchedMovies(searchText: "lord of the rings"),
               ),
               BlocProvider(
                 create: (context) => getIt.get<RecentViewedMoviesCubit>(),

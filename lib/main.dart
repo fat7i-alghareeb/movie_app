@@ -13,11 +13,11 @@ import 'utils/router/app_router.dart';
 import 'utils/themes.dart';
 
 void main() async {
-  setupServiceLocator();
   await Hive.initFlutter();
   Hive.registerAdapter(MovieEntityAdapter());
   await Hive.openBox<MovieEntity>(Constants.kRecentViewedBox);
   await Hive.openBox<MovieEntity>(Constants.kFavoriteBox);
+  setupServiceLocator();
 
   runApp(
     const MyApp(),
@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
   late bool isDarkTheme;
   void _setInitialValues() {
-    isDarkTheme = false;
+    isDarkTheme = true;
   }
 
   @override
