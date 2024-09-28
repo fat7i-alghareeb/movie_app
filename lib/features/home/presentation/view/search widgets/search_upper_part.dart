@@ -21,28 +21,27 @@ class SearchUpperPart extends StatefulWidget {
 class _SearchUpperPartState extends State<SearchUpperPart> {
   @override
   Widget build(BuildContext context) {
-    return SliverToBoxAdapter(
-      child: Row(
-        children: [
-          AppIcon(
-            widget: SvgPicture.asset(
-              AssetsImages.backArrow,
-              height: 15.dg,
-              colorFilter: ColorFilter.mode(
-                context.onPrimaryColor(),
-                BlendMode.srcIn,
-              ),
+    return Row(
+      children: [
+        AppIcon(
+          widget: SvgPicture.asset(
+            AssetsImages.backArrow,
+            height: 13.dg,
+            colorFilter: ColorFilter.mode(
+              context.onPrimaryColor(),
+              BlendMode.srcIn,
             ),
-            onPressed: () {
-              HapticFeedback.heavyImpact();
-            },
           ),
-          horizontalSpace(10),
-          const Expanded(
-            child: SearchWidget(),
-          ),
-        ],
-      ),
+          onPressed: () {
+            context.pop();
+            HapticFeedback.heavyImpact();
+          },
+        ),
+        horizontalSpace(10),
+        const Expanded(
+          child: SearchWidget(),
+        ),
+      ],
     );
   }
 }

@@ -31,7 +31,7 @@ class SectorTitle extends StatelessWidget {
               TextSpan(
                 text: normalText,
                 style: TextStyle(
-                  fontSize: 22.sp,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.normal,
                 ),
               ),

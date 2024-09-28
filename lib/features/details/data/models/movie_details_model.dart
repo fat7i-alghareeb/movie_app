@@ -11,6 +11,8 @@ class MovieDetailsModel extends MovieDetailsEntity {
   String titleField;
   @JsonKey(name: 'Year')
   String yearField;
+  String? imdbRating;
+  String? imdbVotes;
   @JsonKey(name: 'Rated')
   String? ratedField;
   @JsonKey(name: 'Released')
@@ -29,8 +31,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
   String? plotField;
   @JsonKey(name: 'Language')
   String? languageField;
-  @JsonKey(name: 'Country')
-  String? country;
+
   @JsonKey(name: 'Awards')
   String? awardsField;
   @JsonKey(name: 'Poster')
@@ -39,10 +40,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
   List<Rating>? ratings;
   @JsonKey(name: 'Metascore')
   String? metascore;
-  @JsonKey(name: 'ImdbRating')
-  String? imdbRating;
-  @JsonKey(name: 'ImdbVotes')
-  String? imdbVotes;
+
   @JsonKey(name: 'imdbID')
   String? imdbId;
   @JsonKey(name: 'Type')
@@ -63,7 +61,6 @@ class MovieDetailsModel extends MovieDetailsEntity {
     this.actorsField,
     this.plotField,
     this.languageField,
-    this.country,
     this.awardsField,
     this.posterField,
     this.ratings,
@@ -77,7 +74,7 @@ class MovieDetailsModel extends MovieDetailsEntity {
             awards: awardsField ?? "",
             rated: ratedField ?? "pg-13",
             title: titleField,
-            rating: imdbRating ?? "2",
+            rating: imdbRating!,
             poster: posterField ?? Constants.dummyPoster,
             year: yearField,
             id: imdbId ?? "tt1201607",

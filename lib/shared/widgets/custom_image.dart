@@ -17,10 +17,10 @@ class CustomImage extends StatelessWidget {
         elevation: 2,
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+          borderRadius: BorderRadius.circular(Constants.borderRadius),
         ),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+          borderRadius: BorderRadius.circular(Constants.borderRadius),
           child: CachedNetworkImage(
             imageUrl: image,
             errorWidget: (context, url, error) => const Icon(

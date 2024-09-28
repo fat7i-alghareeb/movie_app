@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-const accentColor = Color(0xFF8E6CEF);
+const accentColor = Color(0xFF4c9ae1);
 ///////////////////////////////////////////////////////////////////
 const lightMainColor = Color(0xFFFFFFFF);
 const lightOnPrimaryColor = Colors.black;
 const lightNeutralColor = Color(0xFFF4F4F4);
 ///////////////////////////////////////////////////////////////////
-const darkMainColor = Color(0xFF1D182A);
+const darkMainColor = Color(0xFF0e1621);
 const darkOnPrimaryColor = Colors.white;
-const darkNeutralColor = Color(0xFF342F3F);
+const darkNeutralColor = Color(0xFF17212b);
 
 ///////////////////////////////////////////////////////////////////
 ThemeData lightMode = ThemeData(

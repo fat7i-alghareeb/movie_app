@@ -21,7 +21,7 @@ class StaffWidget extends StatelessWidget {
       child: Card(
         margin: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+          borderRadius: BorderRadius.circular(Constants.borderRadius),
         ),
         color: context.neutralColor(),
         child: Container(

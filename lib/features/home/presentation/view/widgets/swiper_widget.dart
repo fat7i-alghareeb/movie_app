@@ -1,10 +1,13 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/utils/router/router_paths.dart';
 import '../../../../../constants.dart';
 import '../../../data/domain/entities/movie_entity.dart';
-import '../../manger/cubit/home_cubit.dart';
-import '../shimmer.dart';
+import '../../manger/cubit/search_cubit.dart';
+import '../../manger/recent_viewed_books_cubit/cubit/recent_viewed_books_cubit.dart';
+import '../../../../../shared/widgets/shimmer.dart';
 import '../../../../../utils/extensions.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../shared/widgets/custom_image.dart';
@@ -37,9 +40,8 @@ class SwiperWidget extends StatelessWidget {
 
             await context
                 .read<SearchCubit>()
-                .fetchSearchedMovies(
+                .fetchPaginationMovies(
                   pageNumber: ++Constants.famousMoviePageNumber,
-                  searchText: "star wars",
                 )
                 .whenComplete(
               () async {
@@ -52,7 +54,7 @@ class SwiperWidget extends StatelessWidget {
           if (showShimmer) {
             return ShimmerWidget(
               height: height,
-              borderRadius: Constants.kBorderRadius,
+              borderRadius: Constants.borderRadius,
             );
           }
           if (index == movies.length) {
@@ -69,9 +71,14 @@ class SwiperWidget extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              // context
-              //     .getCubit<RecentViewedBooksCubit>()
-              //     .addToRecentView(movies[index]);
+              context
+                  .read<RecentViewedMoviesCubit>()
+                  .addToRecentView(movies[index]);
+              context.pushNamed(
+                KRouter.detailsScreen,
+                arguments: movies[index].id,
+              );
+              HapticFeedback.heavyImpact();
             },
             child: Column(
               children: [

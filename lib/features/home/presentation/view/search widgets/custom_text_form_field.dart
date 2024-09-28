@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/features/home/presentation/manger/cubit/search_cubit.dart';
 import '../../../../../constants.dart';
 import '../../../../../utils/extensions.dart';
 
@@ -20,18 +22,23 @@ class CustomTextField extends StatelessWidget {
       style: TextStyle(
         color: context.onPrimaryColor(),
       ),
-      keyboardType: TextInputType.multiline,
+      onSubmitted: (value) {
+        context.read<SearchCubit>().fetchSearchedMovies(
+              searchText: controller.text.trim(),
+            );
+      },
+      textInputAction: TextInputAction.search,
       cursorColor: context.onPrimaryColor(),
       decoration: InputDecoration(
         prefixIcon: prefixIcon,
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+          borderRadius: BorderRadius.circular(Constants.borderRadius),
           borderSide: BorderSide(
             color: context.primaryColor(),
           ),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+          borderRadius: BorderRadius.circular(Constants.borderRadius),
           borderSide: BorderSide(
             color: context.onPrimaryColor().withOpacity(0.5),
           ),

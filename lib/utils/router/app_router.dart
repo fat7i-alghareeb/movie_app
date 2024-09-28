@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/features/details/presentation/manger/details%20book%20cubit/cubit/details_cubit.dart';
+import 'package:movie_app/utils/functions/setup_service_locator.dart';
+import '../../features/details/data/repo/details_repo.dart';
 import '../../features/details/presentation/view/details_screen.dart';
 import '../../features/favorite/presentation/view/favorite_screen.dart';
 import '../../features/home/presentation/view/home_screen.dart';
-import '../../features/search/presentation/view/search_screen.dart';
+import '../../features/home/presentation/view/search_screen.dart';
 
 import 'router_paths.dart';
 
@@ -23,8 +27,15 @@ class AppRouter {
         );
 
       case KRouter.detailsScreen:
+        final String movieId = settings.arguments as String;
         return MaterialPageRoute(
-          builder: (_) => const DetailsScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => DetailsMovieCubit(getIt.get<DetailsRepo>())
+              ..fetchMovieDetails(movieId: movieId),
+            child: DetailsScreen(
+              movieId: movieId,
+            ),
+          ),
         );
 
       case KRouter.favoriteScreen:

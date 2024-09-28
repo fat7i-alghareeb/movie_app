@@ -18,12 +18,15 @@ class AddToFavoriteButton extends StatelessWidget {
           height: context.heightPercentage(7),
           decoration: BoxDecoration(
             color: context.accentColor(),
-            borderRadius: BorderRadius.circular(Constants.kBorderRadius),
+            borderRadius: BorderRadius.circular(Constants.borderRadius),
           ),
           child: Center(
             child: Text(
               "Add to favorite",
-              style: TextStyle(fontSize: 18.sp),
+              style: TextStyle(
+                fontSize: 18.sp,
+                color: context.primaryColor(),
+              ),
             ),
           ),
         ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/utils/extensions.dart';
 
 import '../../../../../shared/widgets/app_icon.dart';
 
@@ -18,7 +20,10 @@ class DetailMovieAppBar extends StatelessWidget {
               Icons.arrow_back_ios_rounded,
               size: 20.w,
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pop();
+              HapticFeedback.heavyImpact();
+            },
           ),
         ),
         Center(
