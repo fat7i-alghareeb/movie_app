@@ -205,7 +205,9 @@ class _FamousMovieWidgetState extends State<FamousMovieWidget> {
         } else if (state is SearchFailure) {
           return OnFetchErrorWidget(
             errorMessage: state.message,
-            onRetry: () {},
+            onRetry: () => context.read<SearchCubit>().fetchSearchedMovies(
+                  searchText: "Mission: Impossible",
+                ),
           );
         } else {
           return SwiperWidget(

@@ -26,7 +26,9 @@ class DetailsScreen extends StatelessWidget {
             bool isOnline = state is ConnectivityOnline;
             return Stack(
               children: [
-                const DetailsStates(),
+                DetailsStates(
+                  movieId: movieId,
+                ),
                 Positioned(
                   top: 0,
                   left: 0,
@@ -45,7 +47,9 @@ class DetailsScreen extends StatelessWidget {
 class DetailsStates extends StatefulWidget {
   const DetailsStates({
     super.key,
+    required this.movieId,
   });
+  final String movieId;
 
   @override
   State<DetailsStates> createState() => _DetailsStatesState();
@@ -116,7 +120,12 @@ class _DetailsStatesState extends State<DetailsStates>
           );
         } else if (state is DetailsMovieFailure) {
           return Center(
-            child: OnFetchErrorWidget(errorMessage: state.message),
+            child: OnFetchErrorWidget(
+              errorMessage: state.message,
+              onRetry: () => context
+                  .read<DetailsMovieCubit>()
+                  .fetchMovieDetails(movieId: widget.movieId),
+            ),
           );
         } else {
           return Center(

@@ -10,7 +10,7 @@ class UserInfoCubit extends Cubit<UserInfoState> {
   UserInfoCubit() : super(UserInfoInitial());
   final userBox = Hive.box<UserEntity>(Constants.kUserBox);
   late final UserEntity _user =
-      userBox.isNotEmpty ? userBox.getAt(0)! : UserEntity(isDarkTheme: false);
+      userBox.isNotEmpty ? userBox.getAt(0)! : UserEntity(isDarkTheme: true);
 
   Future<void> saveUser() async {
     if (userBox.isEmpty) {

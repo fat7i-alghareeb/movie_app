@@ -22,7 +22,7 @@ void main() async {
   Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<MovieEntity>(Constants.kRecentViewedBox);
   await Hive.openBox<MovieEntity>(Constants.kFavoriteBox);
-  await Hive.openBox<UserEntity>(Constants.kUserBox);
+  await Hive.openBox<UserEntity>(Constants.kUserBox).then((e) => e.clear());
 
   setupServiceLocator();
 

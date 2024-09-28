@@ -22,6 +22,11 @@ class _ConnectivityBarState extends State<ConnectivityBar> {
     super.didUpdateWidget(oldWidget);
     if (isFirstBuild && widget.checkFirstBuild) {
       isFirstBuild = false;
+      if (widget.isOnline == false) {
+        setState(() {
+          isVisible = true;
+        });
+      }
       return;
     }
     if (oldWidget.isOnline != widget.isOnline) {
