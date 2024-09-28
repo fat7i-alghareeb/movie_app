@@ -1,9 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
-import '../../constants.dart';
-import '../../features/home/data/domain/entities/movie_entity.dart';
-import '../../utils/functions/save_movies_to_boxes.dart';
+import '../../../constants.dart';
+import '../../../features/home/data/domain/entities/movie_entity.dart';
+import '../../../utils/functions/save_movies_to_boxes.dart';
 
 part 'favorite_movies_state.dart';
 

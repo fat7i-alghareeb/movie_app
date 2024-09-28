@@ -2,10 +2,13 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:movie_app/constants.dart';
 import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
+import 'shared/cubit/cubit/connectivity_cubit.dart';
+import 'shared/widgets/connectivity_bar.dart';
 import 'utils/extensions.dart';
 import 'utils/router/router_paths.dart';
 import 'utils/functions/setup_service_locator.dart';
@@ -20,7 +23,10 @@ void main() async {
   setupServiceLocator();
 
   runApp(
-    const MyApp(),
+    BlocProvider(
+      create: (context) => ConnectivityCubit()..checkInitialConnectivity(),
+      child: const MyApp(),
+    ),
   );
 }
 
@@ -35,7 +41,7 @@ class _MyAppState extends State<MyApp> {
   final AppRouter _appRouter = AppRouter();
   late bool isDarkTheme;
   void _setInitialValues() {
-    isDarkTheme = true;
+    isDarkTheme = false;
   }
 
   @override

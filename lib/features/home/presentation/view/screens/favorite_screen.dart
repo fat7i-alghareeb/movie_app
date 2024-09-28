@@ -6,11 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/features/home/data/domain/entities/movie_entity.dart';
 import 'package:movie_app/features/home/presentation/manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
 import 'package:movie_app/features/home/presentation/view/home%20widgets/movie_card.dart';
-import 'package:movie_app/shared/cubit/favorite_movies_cubit.dart';
+import 'package:movie_app/shared/cubit/favorite%20cubit/favorite_movies_cubit.dart';
 import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
 import 'package:movie_app/utils/spacing.dart';
 
+import '../../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../../shared/widgets/custom_movie_app_bar.dart';
 import '../../../../../utils/functions/show_toast.dart';
 
@@ -30,7 +32,22 @@ class FavoriteScreen extends StatelessWidget {
               create: (context) => RecentViewedMoviesCubit(),
             ),
           ],
-          child: const FavoriteBody(),
+          child: BlocBuilder<ConnectivityCubit, ConnectivityState>(
+            builder: (context, state) {
+              bool isOnline = state is ConnectivityOnline;
+              return Stack(
+                children: [
+                  const FavoriteBody(),
+                  Positioned(
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    child: ConnectivityBar(isOnline: isOnline),
+                  ),
+                ],
+              );
+            },
+          ),
         ),
       ),
     );

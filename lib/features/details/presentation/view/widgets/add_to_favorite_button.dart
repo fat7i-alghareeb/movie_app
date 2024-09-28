@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/features/details/data/domain/entities/movie_details_entity.dart';
 import 'package:movie_app/utils/functions/show_toast.dart';
-import '../../../../../shared/cubit/favorite_movies_cubit.dart';
+import '../../../../../shared/cubit/favorite cubit/favorite_movies_cubit.dart';
 import '../../../../../utils/extensions.dart';
 import '../../../../../constants.dart';
 
@@ -55,7 +55,7 @@ class _AddToFavoriteButtonState extends State<AddToFavoriteButton> {
             duration: const Duration(milliseconds: 400),
             height: context.heightPercentage(7),
             decoration: BoxDecoration(
-              color: isExisting ? Colors.green[800] : context.accentColor(),
+              color: isExisting ? Colors.red[700] : context.accentColor(),
               borderRadius: BorderRadius.circular(Constants.borderRadius),
             ),
             child: Center(

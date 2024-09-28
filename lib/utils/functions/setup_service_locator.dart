@@ -4,7 +4,7 @@ import 'package:movie_app/features/details/data/repo/details_repo.dart';
 
 import '../../features/home/data/domain/repo/search_repo.dart';
 import '../../features/home/presentation/manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
-import '../../shared/cubit/favorite_movies_cubit.dart';
+import '../../shared/cubit/favorite cubit/favorite_movies_cubit.dart';
 import '../services/movie_service.dart';
 
 final getIt = GetIt.instance;

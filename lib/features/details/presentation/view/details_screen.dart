@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/utils/extensions.dart';
-import 'package:movie_app/utils/functions/setup_service_locator.dart';
-
-import '../../../../shared/cubit/favorite_movies_cubit.dart';
+import '../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../shared/cubit/favorite cubit/favorite_movies_cubit.dart';
+import '../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../shared/widgets/error_widget.dart';
 import '../manger/details book cubit/cubit/details_cubit.dart';
 import '../manger/details book cubit/cubit/details_state.dart';
@@ -21,44 +21,104 @@ class DetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: BlocBuilder<DetailsMovieCubit, DetailsMovieState>(
+        child: BlocBuilder<ConnectivityCubit, ConnectivityState>(
           builder: (context, state) {
-            if (state is DetailsMovieSuccess) {
-              return Stack(
-                children: [
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 20.w),
-                    child: DetailsBody(
-                      movie: state.movieDetailsEntity,
-                    ),
-                  ),
-                  const Gradient(),
-                  Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 65.w, vertical: 20.h),
-                    child: BlocProvider(
-                      create: (context) => FavoriteMoviesCubit(),
-                      child: AddToFavoriteButton(
-                        movie: state.movieDetailsEntity,
-                      ),
-                    ),
-                  )
-                ],
-              );
-            } else if (state is DetailsMovieFailure) {
-              return Center(
-                child: OnFetchErrorWidget(errorMessage: state.message),
-              );
-            } else {
-              return Center(
-                child: CircularProgressIndicator(
-                  color: context.accentColor(),
+            bool isOnline = state is ConnectivityOnline;
+            return Stack(
+              children: [
+                const DetailsStates(),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: ConnectivityBar(isOnline: isOnline),
                 ),
-              );
-            }
+              ],
+            );
           },
         ),
       ),
+    );
+  }
+}
+
+class DetailsStates extends StatefulWidget {
+  const DetailsStates({
+    super.key,
+  });
+
+  @override
+  State<DetailsStates> createState() => _DetailsStatesState();
+}
+
+class _DetailsStatesState extends State<DetailsStates>
+    with TickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  void initAnimations() {
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 800),
+    );
+    _animation = CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    initAnimations();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<DetailsMovieCubit, DetailsMovieState>(
+      builder: (context, state) {
+        if (state is DetailsMovieSuccess) {
+          return Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20.w),
+                child: DetailsBody(
+                  movie: state.movieDetailsEntity,
+                ),
+              ),
+              const Gradient(),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 65.w, vertical: 20.h),
+                child: BlocProvider(
+                  create: (context) => FavoriteMoviesCubit(),
+                  child: AddToFavoriteButton(
+                    movie: state.movieDetailsEntity,
+                  ),
+                ),
+              )
+            ],
+          );
+        } else if (state is DetailsMovieFailure) {
+          return Center(
+            child: OnFetchErrorWidget(errorMessage: state.message),
+          );
+        } else {
+          return Center(
+            child: CircularProgressIndicator(
+              color: context.accentColor(),
+            ),
+          );
+        }
+      },
     );
   }
 }

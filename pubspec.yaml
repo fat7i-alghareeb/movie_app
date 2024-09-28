@@ -31,6 +31,7 @@ dependencies:
   cached_network_image: ^3.4.1
   card_swiper: ^3.0.1
   carousel_slider: ^5.0.0
+  connectivity_plus: ^6.0.5
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dio: ^5.7.0

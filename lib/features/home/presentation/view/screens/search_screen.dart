@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/utils/functions/setup_service_locator.dart';
+import '../../../../../shared/cubit/cubit/connectivity_cubit.dart';
+import '../../../../../shared/widgets/connectivity_bar.dart';
 import '../../../../../utils/spacing.dart';
 
 import '../../../data/domain/repo/search_repo.dart';
@@ -19,7 +21,22 @@ class SearchScreen extends StatelessWidget {
         child: SafeArea(
           child: BlocProvider(
             create: (context) => SearchCubit(getIt.get<SearchRepo>()),
-            child: const SearchBody(),
+            child: BlocBuilder<ConnectivityCubit, ConnectivityState>(
+              builder: (context, state) {
+                bool isOnline = state is ConnectivityOnline;
+                return Stack(
+                  children: [
+                    const SearchBody(),
+                    Positioned(
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      child: ConnectivityBar(isOnline: isOnline),
+                    ),
+                  ],
+                );
+              },
+            ),
           ),
         ),
       ),

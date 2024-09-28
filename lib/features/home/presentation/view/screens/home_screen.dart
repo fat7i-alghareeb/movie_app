@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/shared/cubit/cubit/connectivity_cubit.dart';
 import 'package:movie_app/utils/extensions.dart';
 import 'package:movie_app/utils/router/router_paths.dart';
+import '../../../../../shared/widgets/connectivity_bar.dart';
 import '../../../data/domain/entities/movie_entity.dart';
 import '../../../data/domain/repo/search_repo.dart';
 import '../../manger/cubit/search_cubit.dart';
@@ -35,8 +37,26 @@ class HomeScreen extends StatelessWidget {
           color: context.primaryColor(),
         ),
       ),
-      body: const SafeArea(
-        child: HomeBody(),
+      body: SafeArea(
+        child: BlocBuilder<ConnectivityCubit, ConnectivityState>(
+          builder: (context, state) {
+            bool isOnline = state is ConnectivityOnline;
+            return Stack(
+              children: [
+                const HomeBody(),
+                Positioned(
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  child: ConnectivityBar(
+                    isOnline: isOnline,
+                    checkFirstBuild: true,
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

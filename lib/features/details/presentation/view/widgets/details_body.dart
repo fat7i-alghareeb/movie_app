@@ -14,11 +14,12 @@ class DetailsBody extends StatelessWidget {
     required this.movie,
   });
   final MovieDetailsEntity movie;
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: [
-        sliverVerticalSpace(30),
+        sliverVerticalSpace(20),
         DetailsUpperPart(movie: movie),
         sliverVerticalSpace(30),
         const SectorTitle(
