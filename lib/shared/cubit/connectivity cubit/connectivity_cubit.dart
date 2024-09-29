@@ -15,7 +15,7 @@ class ConnectivityCubit extends Cubit<ConnectivityState> {
 
   void _checkConnectivity(List<ConnectivityResult> result) {
     if (result.contains(ConnectivityResult.mobile) ||
-        result.contains(ConnectivityResult.mobile) ||
+        result.contains(ConnectivityResult.wifi) ||
         result.contains(ConnectivityResult.vpn)) {
       emit(ConnectivityOnline());
     } else {
