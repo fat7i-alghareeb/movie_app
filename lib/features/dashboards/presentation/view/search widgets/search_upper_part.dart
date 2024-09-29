@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import '../../../../../utils/extensions.dart';
-import '../../../../../utils/spacing.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../shared/widgets/app_icon.dart';
 import '../../../../../../utils/assets.dart';
+import '../../../../../utils/extensions.dart';
+import '../../../../../utils/spacing.dart';
 import 'search_widget.dart';
 
 class SearchUpperPart extends StatefulWidget {

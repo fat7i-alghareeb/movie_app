@@ -15,8 +15,8 @@ class AppIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 40.dg,
-      width: 40.dg,
+      height: 55.dg,
+      width: 55.dg,
       child: GestureDetector(
         onTap: onPressed,
         child: Card(

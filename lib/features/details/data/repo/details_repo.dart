@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import '../domain/entities/movie_details_entity.dart';
 
 import '../../../../utils/errors/failure.dart';
 import '../../../../utils/services/movie_service.dart';
+import '../domain/entities/movie_details_entity.dart';
 
 class DetailsRepo {
   final ApiService apiService;

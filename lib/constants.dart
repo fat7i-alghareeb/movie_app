@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Constants {
@@ -9,5 +11,22 @@ class Constants {
   static int searchedMoviesPageNumber = 1;
   static String kRecentViewedBox = "kRecentViewedBox";
   static String kFavoriteBox = "kFavoriteBox";
-  static String kUserBox = "user_box";
+  static String kUserBox = "userBox";
+
+  static const List<String> famousMovies = [
+    "Mission: Impossible",
+    "The Lord of the Rings",
+    "The Matrix",
+    "Avengers",
+    "Jurassic Park",
+    "Harry Potter",
+    "Star Wars",
+    "Fast and Furious",
+    "Batman",
+    "spider man",
+    "x men",
+    "Pirates of the Caribbean",
+  ];
+  static final randomMovie =
+      famousMovies[Random().nextInt(famousMovies.length)];
 }

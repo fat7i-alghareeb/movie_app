@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:movie_app/utils/extensions.dart';
 
 import '../../../../../utils/functions/show_toast.dart';
 import '../../../data/domain/entities/movie_entity.dart';
@@ -42,19 +44,40 @@ class _RecentViewedMoviesState extends State<RecentViewedMovies> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<RecentViewedMoviesCubit, RecentViewedMoviesState>(
-      listener: (context, state) {
-        if (state is RecentViewedMoviesSuccess) {
-          movies = context.read<RecentViewedMoviesCubit>().movies;
-          _jumpToTop();
+        listener: (context, state) {
+      if (state is RecentViewedMoviesSuccess) {
+        movies = context.read<RecentViewedMoviesCubit>().movies;
+        _jumpToTop();
+      }
+      if (state is RecentViewedMoviesFailure) {
+        showToast(message: state.errorMessage, color: Colors.red[700]);
+      }
+    }, builder: (context, state) {
+      if (state is RecentViewedMoviesSuccess) {
+        if (movies.isNotEmpty) {
+          return MoviesCardListView(
+            movies: movies.reversed.toList(),
+            scrollController: scrollController,
+          );
         }
-        if (state is RecentViewedMoviesFailure) {
-          showToast(message: state.errorMessage, color: Colors.red[700]);
-        }
-      },
-      builder: (context, state) => MoviesCardListView(
-        movies: movies.reversed.toList(),
-        scrollController: scrollController,
-      ),
-    );
+        return SizedBox(
+          height: context.heightPercentage(20),
+          child: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20.w),
+              child: Text(
+                "Explore world of enjoyment",
+                style: TextStyle(
+                  fontSize: 20.sp,
+                  color: context.onPrimaryColor().withOpacity(.5),
+                ),
+              ),
+            ),
+          ),
+        );
+      } else {
+        return const SizedBox.shrink();
+      }
+    });
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +9,6 @@ import 'shared/cubit/connectivity cubit/connectivity_cubit.dart';
 import 'shared/cubit/cubit/user_info_cubit.dart';
 import 'shared/cubit/cubit/user_info_state.dart';
 import 'shared/entities/user_entity.dart';
-import 'utils/extensions.dart';
 import 'utils/router/router_paths.dart';
 import 'utils/functions/setup_service_locator.dart';
 import 'utils/router/app_router.dart';
@@ -22,7 +20,7 @@ void main() async {
   Hive.registerAdapter(UserEntityAdapter());
   await Hive.openBox<MovieEntity>(Constants.kRecentViewedBox);
   await Hive.openBox<MovieEntity>(Constants.kFavoriteBox);
-  await Hive.openBox<UserEntity>(Constants.kUserBox).then((e) => e.clear());
+  await Hive.openBox<UserEntity>(Constants.kUserBox);
 
   setupServiceLocator();
 
@@ -63,8 +61,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    log(context.screenHeight.toString());
-    log(context.screenWidth.toString());
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
@@ -74,7 +70,7 @@ class _MyAppState extends State<MyApp> {
     );
 
     return ScreenUtilInit(
-      designSize: const Size(360, 690),
+      designSize: const Size(390, 850),
       minTextAdapt: true,
       splitScreenMode: true,
       child: BlocListener<UserInfoCubit, UserInfoState>(

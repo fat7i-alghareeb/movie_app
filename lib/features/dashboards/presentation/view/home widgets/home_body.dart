@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie_app/constants.dart';
 
 import '../../../../../shared/widgets/sector_title.dart';
 import '../../../../../utils/functions/setup_service_locator.dart';
@@ -35,7 +36,7 @@ class HomeBody extends StatelessWidget {
             providers: [
               BlocProvider(
                 create: (context) => SearchCubit(getIt.get<SearchRepo>())
-                  ..fetchSearchedMovies(searchText: "Mission: Impossible"),
+                  ..fetchSearchedMovies(searchText: Constants.randomMovie),
               ),
               BlocProvider(
                 create: (context) => getIt.get<RecentViewedMoviesCubit>(),

@@ -29,7 +29,6 @@ class UserInfoCubit extends Cubit<UserInfoState> {
   UserEntity get user => userBox.getAt(0)!;
   void changeTheme(bool newTheme) {
     user.isDarkTheme = newTheme;
-    log(user.isDarkTheme.toString());
     userBox.putAt(0, user);
 
     emit(EditThemeUserInfo());
