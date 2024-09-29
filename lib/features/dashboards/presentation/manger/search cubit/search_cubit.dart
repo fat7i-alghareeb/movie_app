@@ -17,6 +17,7 @@ class SearchCubit extends Cubit<SearchState> {
     hasMoreData = true;
 
     Constants.searchedMoviesPageNumber = 1;
+    Constants.famousMoviePageNumber = 1;
     emit(SearchLoading());
 
     var result = await searchRepo.fetchSearchedMovies(

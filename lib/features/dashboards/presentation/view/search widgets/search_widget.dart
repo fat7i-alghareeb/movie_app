@@ -63,7 +63,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                 AssetsImages.search,
                 height: 15.dg,
                 colorFilter: ColorFilter.mode(
-                  context.onPrimaryColor(),
+                  context.onPrimaryColor().withOpacity(0.5),
                   BlendMode.srcIn,
                 ),
               ),

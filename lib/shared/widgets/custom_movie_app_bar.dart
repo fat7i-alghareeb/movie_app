@@ -19,6 +19,7 @@ class CustomAppBar extends StatelessWidget {
             widget: Icon(
               Icons.arrow_back_ios_rounded,
               size: 20.w,
+              color: context.onPrimaryColor(),
             ),
             onPressed: () {
               context.pop();

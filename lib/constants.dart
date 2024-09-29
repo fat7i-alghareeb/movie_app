@@ -21,12 +21,15 @@ class Constants {
     "Jurassic Park",
     "Harry Potter",
     "Star Wars",
-    "Fast and Furious",
     "Batman",
     "spider man",
     "x men",
     "Pirates of the Caribbean",
+    "Planet of the Apes",
   ];
-  static final randomMovie =
-      famousMovies[Random().nextInt(famousMovies.length)];
+}
+
+String get randomMovie {
+  return Constants
+      .famousMovies[Random().nextInt(Constants.famousMovies.length)];
 }

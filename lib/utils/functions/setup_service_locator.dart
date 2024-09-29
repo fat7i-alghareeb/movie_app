@@ -1,10 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import '../../features/details/data/repo/details_repo.dart';
-
 import '../../features/dashboards/data/domain/repo/search_repo.dart';
 import '../../features/dashboards/presentation/manger/recent_viewed_books_cubit/recent_viewed_books_cubit.dart';
-import '../../shared/cubit/favorite cubit/favorite_movies_cubit.dart';
 import '../services/movie_service.dart';
 
 final getIt = GetIt.instance;
@@ -15,7 +13,6 @@ void setupServiceLocator() {
       createAndSetupDio(),
     ),
   );
-  // getIt.registerSingleton<UserRepo>(UserRepo());
   getIt.registerSingleton<SearchRepo>(
     SearchRepo(
       getIt.get<ApiService>(),
@@ -27,16 +24,6 @@ void setupServiceLocator() {
     ),
   );
   getIt.registerSingleton<RecentViewedMoviesCubit>(RecentViewedMoviesCubit());
-  // getIt.registerSingleton<DetailsRepo>(
-  //   DetailsRepo(
-  //     getIt.get<ApiService>(),
-  //   ),
-  // );
-  // getIt.registerSingleton<SearchRepo>(
-  //   SearchRepo(
-  //     getIt.get<ApiService>(),
-  //   ),
-  // );
 }
 
 Dio createAndSetupDio() {

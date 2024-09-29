@@ -1,11 +1,7 @@
-import 'dart:developer';
-
 import '../../../../../utils/errors/failure.dart';
 import '../../../../../utils/services/movie_service.dart';
-
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-
 import '../../models/search_response.dart';
 
 class SearchRepo {

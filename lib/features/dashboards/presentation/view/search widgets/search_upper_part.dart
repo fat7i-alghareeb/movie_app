@@ -28,7 +28,7 @@ class _SearchUpperPartState extends State<SearchUpperPart> {
             AssetsImages.backArrow,
             height: 13.dg,
             colorFilter: ColorFilter.mode(
-              context.onPrimaryColor(),
+              context.onPrimaryColor().withOpacity(.5),
               BlendMode.srcIn,
             ),
           ),
